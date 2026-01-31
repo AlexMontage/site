@@ -1,0 +1,344 @@
+/* Твої оригінальні налаштування */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Arial';
+    line-height: 1.6;
+    color: #333;
+    background-color: #fcfcfc;
+    font-display: fallback;
+}
+
+@media (max-width: 768px) {
+    .reels-container {
+        flex-direction: column; /* Картки стають одна під одну */
+        align-items: center;
+    }
+    
+    .card {
+        width: 90%; /* Картка займає майже всю ширину екрана смартфона */
+    }
+}
+
+
+
+@keyframes fadeInLogo {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);    
+    }
+}
+section {
+    padding: 40px 20px;
+    max-width: 1900px;
+    max-height: 10000px;
+    margin: 30px auto;
+}
+
+
+
+
+/* Знайти і замінити блок .about */
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    height: auto; /* ОБОВ'ЯЗКОВО прибираємо 600px */
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 40px;
+    margin-left: 0; /* Прибираємо фіксований відступ */
+}
+
+/* Медіа-запит для планшетів та смартфонів */
+@media (max-width: 768px) {
+    /* ... ваші існуючі стилі для .about та .guide-box ... */
+
+    .contacts-box {
+        width: 95%; /* Ширше на мобільних */
+        padding: 25px 20px; /* Трохи менші падінги, щоб вивільнити місце */
+        margin-bottom: 100px; /* Більше місця знизу, щоб мобільне меню не перекривало контакти */
+    }
+
+    .contacts-box p {
+        font-size: 15px; /* Оптимальний розмір для читання */
+        margin-bottom: 20px; /* Збільшуємо відстань між рядками */
+        display: flex;
+        flex-direction: column; /* Текст опису над посиланням */
+        align-items: flex-start;
+    }
+
+    .copy-text {
+        margin-left: 0; /* Прибираємо лівий відступ */
+        margin-top: 5px; /* Додаємо відступ зверху, щоб посилання було окремим рядком */
+        font-size: 16px; /* Робимо посилання трохи більшим для зручності кліку */
+        word-break: break-all; /* Щоб довгі email не вилазили за край екрана */
+    }
+
+    section {
+        margin: 20px auto;
+        padding: 20px 15px;
+    }
+
+    .about {
+        flex-direction: column-reverse; /* Фото над текстом */
+        text-align: center;
+    }
+
+    .skills {
+        justify-content: center; /* Центруємо теги навичок */
+    }
+
+    .guide-box, .contacts-box {
+        width: 95%;
+        padding: 25px 15px;
+    }
+}
+.about-text {
+    flex: 1;
+}
+.about-text p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #444;
+}
+/* Теги навичок */
+.skills {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    text-decoration: bold;
+}
+.skill-tag {
+    background: #000000;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+}
+/* Адаптація для мобілок */
+
+
+
+/* Тарифи та паслуги */
+.section-title {
+    font-family: 'Montserrat';
+    letter-spacing: -0.5;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #000000;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Новий спільний контейнер для всіх карток */
+.guide-box {
+    display: block; /* Гарантуємо, що це блочний елемент */
+    margin: 0 auto; /* Обнуляємо верх/низ для чистоти і ставимо auto по боках */ 
+    padding: 40px; 
+    background: #1a1a1a; 
+    border-radius: 20px;     
+    max-width: 850px; 
+    width: 90%; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.guide-box p {
+    margin-bottom: 20px; /* Це створює відступ між кроками */
+    color: #e0e0e0; 
+    line-height: 1;
+    font-family: 'Arial';
+}
+/* ФІКС: прибираємо відступ у останнього параграфа */
+.guide-box p:last-child {
+    margin-bottom: 0;
+}
+.guide-box p strong {
+    color: #007bff; 
+}
+/* Базовий стиль посилання та тексту всередині нього */
+#guide .guide-box a.drive-link, 
+#guide .guide-box a.drive-link strong {
+    color: #007bff !important;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+/* Зміна кольору при наведенні для самого посилання та тексту всередині */
+#guide .guide-box a.drive-link:hover, 
+#guide .guide-box a.drive-link:hover strong {
+    color: #70b8ff !important;
+}
+
+.guide-box a{
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.guide-box a:hover{
+    color: #70b8ff;
+}
+
+
+
+/* Контейнер контактів */
+.contacts-box {
+    margin: 0 auto 40px; 
+    padding: 40px; 
+    background: #1a1a1a; 
+    border-radius: 20px;     
+    max-width: 850px; 
+    width: 90%; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    margin-bottom: 70px;
+}
+/* Опис контактів (звичайний текст) */
+.contacts-box p {
+    margin-bottom: 10px; 
+    color: #e0e0e0; 
+    font-family: 'Arial';
+    font-size: 16px;
+    font-weight: 300;
+}
+.contacts-box p:last-child {
+    margin-bottom: 0;
+}
+/* Твій збережений стиль для тексту, що копіюється */
+.copy-text {
+    font-family: 'Arial';
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-left: 2px; /* Невеликий відступ від опису */
+    text-decoration: none;
+}
+.copy-text:hover {
+    color: #70b8ff;
+}
+
+
+
+
+/* Футер */
+footer {
+    padding: 40px 20px; /* Додаємо бокові відступи */
+    background-color: #000;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    width: 100%;
+}
+
+.footer-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; /* Трохи зменшили для кращого вигляду */
+    font-weight: 300;
+    color: #777;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1.5;
+}
+
+.footer-text:hover {
+    color: #fff;
+}
+
+.lore {
+    margin-top: 20px;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: #646464;
+    display: block;
+    line-height: 1.6;
+}
+
+/* Робимо посилання в футері зручними для натискання пальцем */
+.copy-email, .copy-tglink {
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s;
+    text-decoration: none;
+    display: inline-block; /* Щоб відступи працювали */
+    padding: 5px 0;
+}
+
+.copy-email:hover, .copy-tglink:hover {
+    color: #ffffff;
+}
+.toast {
+    visibility: hidden;
+    position: fixed;
+    left: 50%;
+    bottom: 20px; 
+    transform: translateX(-50%);
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease, bottom 0.5s ease, visibility 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px; /* Плавно піднімається вгору */
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 30px 15px;
+    }
+
+    .footer-text {
+        font-size: 13px;
+        letter-spacing: 0.5px;
+    }
+
+    .lore {
+        font-size: 11px;
+        margin-top: 15px;
+    }
+    
+    /* Додаємо відстань між рядками посилань, щоб не промахнутися пальцем */
+    .lore br {
+        display: block;
+        content: "";
+        margin-top: 10px;
+    }
+}
+
+

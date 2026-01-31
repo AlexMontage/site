@@ -1,0 +1,152 @@
+.navigation-box {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background-color: #000000;
+    border-radius: 20px;
+    padding: 8px 15px; /* Менші падінги */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: auto;
+    max-width: 95%; /* Не даємо вийти за край екрана */
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+nav a {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3s;
+    white-space: nowrap; 
+}
+/* Ефект наведення з твоїх нотаток */
+nav a:hover {
+    color: #808080; 
+}
+/* Іконка будиночка */
+.home-icon {
+    width: 24px; /* Менша іконка краще вписується в рядок */
+    height: auto;
+    display: block;
+    transition: 0.3s ease; 
+}
+.home-icon:hover {
+    filter: grayscale(100%) brightness(70%); 
+}
+/* Контейнер для іконки (посилання) */
+/* 1. Стиль для посилання, яке тримає іконку */
+[data-tooltip] {
+    position: relative;
+    display: inline-flex; /* Щоб посилання облягало іконку */
+}
+
+/* 2. Сама підказка (тепер на посиланні) */
+[data-tooltip]::after {
+    content: attr(data-tooltip); 
+    position: absolute;
+    bottom: -40px; /* З'явиться ПІД іконкою, щоб не перекривати меню */
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    
+    font-family: 'Calibri', sans-serif;
+    font-size: 12px;
+    background-color: #555555; 
+    color: #fff; 
+    padding: 5px 10px;
+    border-radius: 8px;
+    white-space: nowrap; 
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease; 
+    pointer-events: none;
+    z-index: 1100; /* Щоб була поверх усього */
+}
+
+/* 3. Ефект при наведенні */
+[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Плавно випливає */
+}
+
+/* Прибираємо підказки на телефонах, бо вони заважають натисканню */
+@media (max-width: 768px) {
+    [data-tooltip]::after {
+        display: none !important;
+    }
+}
+
+/* 1. На комп'ютері ховаємо мобільне меню */
+.mobile-only {
+    display: none;
+}
+
+/* 2. Налаштування для телефонів */
+@media (max-width: 768px) {
+    /* Ховаємо десктопне меню повністю */
+    .pc-only {
+        display: none !important;
+    }
+    
+    .home-icon-mobile {
+        width: 22px;        /* Оптимальний розмір для телефону */
+        height: 22px;       /* Робимо її квадратною */
+        display: block;     /* Прибираємо зайві відступи знизу */
+        object-fit: contain; /* Щоб фото не стискалося неправильно */
+        filter: brightness(1); /* Якщо іконка темна, можна додати яскравості */
+        transition: 0.3s ease;
+    }
+
+    /* Додамо ефект при натисканні пальцем */
+    .home-icon-mobile:active {
+        transform: scale(0.9); /* Легке зменшення при кліку */
+        filter: grayscale(1);  /* Або зміна кольору */
+    }
+
+    /* Вирівнюємо посилання, в якому лежить іконка */
+    .mobile-only nav a:first-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Показуємо і стилізуємо мобільне меню */
+    .mobile-only {
+        display: block; /* Вмикаємо видимість */
+        position: fixed;
+        bottom: 15px; /* Робимо острівець знизу, це зручніше для пальців */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background-color: #000000;
+        border-radius: 20px;
+        padding: 10px 20px;
+        width: 90%;
+        max-width: 350px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .mobile-only nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .mobile-only nav a {
+        text-decoration: none;
+        color: #ffffff;
+        font-family: 'Montserrat', sans-serif; /* Ваш шрифт */
+        font-weight: bold;
+        font-size: 14px;
+    }
+}
