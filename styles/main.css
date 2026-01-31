@@ -45,7 +45,8 @@
 }
 
 .telegram-channel-link:hover, .facebook-channel-link:hover {
-    filter: brightness(0%);
+    filter: brightness(80%);
     transform: scale(1.1);  /* Додав невелике збільшення для кращого вигляду */
 }
+
 
