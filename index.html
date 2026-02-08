@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <title>Alex Montage</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/navigation.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -23,11 +24,11 @@
             <img class="home-icon" src="icons/home.png" alt="Головна">
         </a>
         <nav>
-            <a href="#about">Про автора</a>
-            <a href="#finished_works">Роботи</a>
+            <a href="#about">Автор</a>
+            <a href="#finished_works">Мої роботи</a>
             <a href="#tariffs">Тарифи</a>
             <a href="#help">Допомога</a>
-            <a href="#contacts">Контакти</a>
+            <a href="#contacts">Зв'язок</a>
         </nav>
     </div>
 
@@ -52,8 +53,9 @@
                 <p>Віддалений, якісний та доступний відемонотаж по всій Україні</p>
             </div>
             <div class="channel-links">
-                <a href="tg://resolve?domain=alex_montage" target="_blank"><img src="icons/telegram.png" class="telegram-channel-link"></a>
-                <a href="https://www.facebook.com/share/g/1JzoEEKegs/" target="_blank"><img src="icons/facebook.png" class="facebook-channel-link"></a>
+                <a href="https://t.me/alex_montage" target="_blank" data-tooltip="Telegram-канал"><img src="icons/telegram_link.png" class="telegram-channel-link"></a>
+                <a href="https://www.facebook.com/share/g/1JzoEEKegs/" target="_blank" data-tooltip="Facebook-спільнота"><img src="icons/facebook.png" class="facebook-channel-link"></a>
+                <a href="https://www.youtube.com/@alex.montage.youtube" target="_blank" data-tooltip="YouTube-канал"><img src="icons/youtube_link.png" class="youtube-channel-link"></a>
             </div>
         </section>
     <main>
@@ -62,20 +64,19 @@
         <div class="about">
             <div class="about-text">
                 <h2 class="section-title" style="text-align: center; margin-bottom: 20px;">Про автора</h2>
-                <p>Мене звати Чепіга Олександр Васильович. Зараз мені 14 років. займаюся відеомонтажем вже більше 3 років. Пропоную для клієнтів динамічний та якісний контент, який допомагає блогерам залучати нову аудиторію, колективам рекламувати свої послуги та інше, або законсервувати ваші спогади лише в одному цілому відео.</p>
+                <p>Мене звати Чепіга Олександр Васильович. Зараз мені 15 років. займаюся відеомонтажем вже більше 3 років. Пропоную для клієнтів динамічний та якісний контент, який допомагає блогерам залучати нову аудиторію, колективам рекламувати свої послуги та інше, або законсервувати ваші спогади в одному відео.</p>
                 <p>Моя робота — це поєднання чіткого ритму, кольорокорекції та саунд-дизайну для створення візуалу, який хочеться додивитися до кінця.</p>
                 <div class="skills">
                     <span class="skill-tag">Pinnacle Studio</span>
-                    <span class="skill-tag">Adobe Premiere Pro</span>
                 </div>
             </div> <div class="about-image">
-                <img src="icons/about.jpg" alt="Олександр — відеомонтажер">
+                <img src="icons/about.jpg" alt="Фото автора">
             </div>
         </div>
     </section>
 
     <section id="finished_works">
-        <h2 class="section-title">Готові роботи</h2>
+        <h2 class="section-title">Мої роботи</h2>
         <div class="portfolio-grid">
     
             <div class="portfolio-item">
@@ -96,33 +97,42 @@
         <div class="tariffs-grid"> 
     
             <div class="card">
-                <img src="icons/event1.png" alt="Події" class="card-event">
-                <h3 class="card-titles">Подія</h3>
+                <img src="icons/express_icon.png" alt="Експрес" class="card-event">
+                <h3 class="card-titles">Експрес</h3>
                 <ul>
-                    <li>Монтаж свят, привітань та важливих моментів вашого життя до 15 хв тривалістю</li>
+                    <li>Короткі реклами</li>
+                    <li>Відеопривітання</li>
+                    <li>Shorts, Reels кліпи</li>
                 </ul>
-                <p class="price">Від 110 грн/хв</p>
-                <a href="https://tally.so/r/lb6Mav?name=Подія&price=110" target="_blank" class="btn">Перейти</a>
+                <p class="new_price">Від 100 грн/хв</p>
+                <p class="old_price">110грн/хв</p>
+                <a href="https://tally.so/r/lb6Mav?name=Експрес&price=100" target="_blank" class="btn">Замовити</a>
             </div>
 
             <div class="card">
-                <img src="icons/safe.png" alt="Відео-архів" class="card-safe">
-                <h3 class="card-titles">Архів</h3>
+                <img src="icons/standart_icon.png" alt="Стандарт" class="card-safe">
+                <h3 class="card-titles">Стандарт</h3>
                 <ul>
-                    <li>Законсервуйте свої спогади в одному великому відео до 20 хв тривалістю</li>
+                    <li>Пам'ятні відео</li>
+                    <li>Репортажі з подій</li>
+                    <li>Відеозвіти зі свят</li>
                 </ul>
-                <p class="price">Від 120 грн/хв</p>
-                <a href="https://tally.so/r/lb6Mav?name=Архів&price=120" target="_blank" class="btn">Перейти</a>
+                <p class="new_price">Від 120 грн/хв</p>
+                <p class="old_price">130грн/хв</p>
+                <a href="https://tally.so/r/lb6Mav?name=Стандарт&price=120" target="_blank" class="btn">Замовити</a>
             </div>
-    
+
             <div class="card">
-                <img src="icons/youtube1.png" alt="YouTube" class="card-youtube">
-                <h3 class="card-titles">YouTube</h3>
+                <img src="icons/custom_icon.png" alt="Преміум" class="card-safe">
+                <h3 class="card-titles">Преміум</h3>
                 <ul>
-                    <li>Монтаж навчального, або розважального відео на YouTube до 15 хв тривалістю</li>
+                    <li>Реклами брендів</li>
+                    <li>Безмежна тривалість</li>
+                    <li>Повна персоналізація</li>
                 </ul>
-                <p class="price">Від 140 грн/хв</p>
-                <a href="https://tally.so/r/lb6Mav?name=YouTube&price=140" target="_blank" class="btn">Перейти</a>
+                <p class="new_price">Від 135 грн/хв</p>
+                <p class="old_price">150грн/хв</p>
+                <a href="https://tally.so/r/lb6Mav?name=Преміум&price=135" target="_blank" class="btn">Замовити</a>
             </div>
     
         </div> 
