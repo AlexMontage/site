@@ -1,17 +1,17 @@
-/* Базові налаштування для всього контейнера */
+/* Контейнер тарифів */
 .tariffs-grid {
     display: flex;
-    justify-content: center;   /* Центруємо групу карток */
-    align-items: stretch;      /* Робимо всі картки однакової висоти */
-    gap: 30px;                 /* Відстань між картками */
-    flex-wrap: wrap;           /* Щоб на мобілках вони ставали одна під одну */
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: nowrap; /* ЗМІНЕНО: Картки завжди в один ряд для каруселі */
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
 }
 
-/* Стиль для тексту, що копіюється (з ваших налаштувань) */
+/* Стиль для тексту, що копіюється */
 .copy-text { 
     font-family: 'Montserrat'; 
     color: #007bff; 
@@ -26,11 +26,12 @@
 /* Базова картка (ПК версія) */
 .card {
     background: #000000;
-    border: 1px solid #1a1a1a; /* Трохи світліша рамка, щоб бачити межі на чорному */
+    border: 1px solid #1a1a1a;
     padding: 25px;
     border-radius: 50px;
-    width: 25%;               /* Трохи збільшив для балансу */
-    max-width: 320px;         /* Оптимальна ширина для тексту */
+    width: 25%;
+    flex: 0 0 300px; /* ЗМІНЕНО: Фіксована ширина для коректної роботи каруселі */
+    max-width: 320px;
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -38,9 +39,7 @@
     text-align: center;
     transition: opacity 0.3s ease-out, transform 0.3s ease-out;
     box-sizing: border-box;
-    /* Захист від вильоту тексту */
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+    overflow-wrap: break-word; /* Додано для захисту від вильоту тексту */
 }
 
 .card:nth-child(1) { transition-delay: 0.1s; }
@@ -97,13 +96,13 @@
 .card ul {
     list-style: none;
     font-family: 'Montserrat';
-    line-height: 1;
+    line-height: 1.2; /* Трохи збільшено для читабельності */
     text-align: center;
     padding: 0;
     color: rgb(224, 224, 224);
     font-size: 15px;
     margin: 20px 0 20px 0;
-    flex-grow: 1; /* Виштовхує кнопку вниз */
+    flex-grow: 1;
     width: 100%;
 }
 
@@ -118,9 +117,9 @@
     justify-content: center;
     width: fit-content;
     min-width: 130px;
-    padding: 7px;
-    gap: 19px;
-    font-size: 16px;
+    padding: 8px 25px;
+    gap: 10px;
+    font-size: 17px;
     border-radius: 12px;
     background: #1222ff;
     color: #ffffff;
@@ -135,20 +134,54 @@
     transform: scale(1.05);
 }
 
-/* --- Адаптація під смартфони --- */
+/* --- Адаптація під смартфони (КАРУСЕЛЬ) --- */
 @media (max-width: 768px) {
     .tariffs-grid {
-        gap: 25px;
-        padding: 15px;
-        flex-direction: column;
-        align-items: center;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 20px; /* Відступ знизу для повзунка */
+        gap: 20px;
+    }
+
+    /* Налаштування вигляду повзунка */
+    .tariffs-grid::-webkit-scrollbar {
+        height: 100px; /* Висота повзунка */
+        display: block; /* Робимо його видимим */
+        
+    }
+
+    /* Доріжка повзунка */
+    .tariffs-grid::-webkit-scrollbar-track {
+        background: #a0a0a0; /* Темний колір фону доріжки */
+        border-radius: 10px;
+        margin: 0 40px; /* Щоб повзунок не впирався в краї екрана */
+    }
+
+    /* Сам повзунок (бігунок) */
+    .tariffs-grid::-webkit-scrollbar-thumb {
+        background: #a0a0a0; /* Ваш синій колір */
+        border-radius: 10px;
+    }
+
+    /* Колір повзунка при наведенні або активності */
+    .tariffs-grid::-webkit-scrollbar-thumb:active {
+        background: #a0a0a0;
     }
     
+    /* Для Firefox */
+    .tariffs-grid {
+        scrollbar-width: thin;
+        scrollbar-color: #a0a0a0 #ffffff;
+    }
+
     .card {
-        width: 100%;        /* На мобілці займає всю ширину */
-        max-width: 275px;   /* Але не розповзається занадто сильно */
-        padding: 30px 20px;
+        flex: 0 0 85%;      /* Картка займає 85% екрана (видно край наступної) */
+        max-width: 290px;
+        scroll-snap-align: center; /* Центрування при зупинці скролу */
         border-radius: 35px;
+        padding: 30px 20px;
     }
 
     .card-titles {
@@ -156,15 +189,11 @@
     }
 
     .card-youtube, .card-safe, .card-event {
-        height: 90px;      /* Трохи компактніше */
-    }
-
-    .card ul {
-        font-size: 14px;   /* Трохи менший шрифт для списку */
+        height: 100px;
     }
 
     .btn {
-        width: 100%;       /* Кнопка на всю ширину зручніша для пальця */
-        padding: 10px -25px;
+        width: 100%;       /* Кнопка на всю доступну ширину картки */
+        max-width: 180px;  /* Збільшив ліміт, щоб вліз текст */
     }
 }
