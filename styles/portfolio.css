@@ -23,7 +23,7 @@
 }
 
 .portfolio-item:hover {
-    transform: translateY(-10px);
+    transform: scale(1.025);
 }
 /* Область відео (Прев'ю) */
 .video-preview {

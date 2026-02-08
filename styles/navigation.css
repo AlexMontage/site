@@ -5,13 +5,16 @@
     transform: translateX(-50%);
     z-index: 1000;
     background-color: #000000;
-    border-radius: 20px;
-    padding: 8px 15px; /* Менші падінги */
+    border-radius: 18px;
+    border: #e47171 10px;
+    padding: 10px 20px; /* Менші падінги */
     display: flex;
-    align-items: center;
-    gap: 15px;
+    align-items: left;
+    gap: 17px;
     width: auto;
     max-width: 95%; /* Не даємо вийти за край екрана */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 nav {
@@ -20,26 +23,26 @@ nav {
 }
 nav a {
     text-decoration: none;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     color: #ffffff;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 15px;
     transition: 0.3s;
     white-space: nowrap; 
 }
 /* Ефект наведення з твоїх нотаток */
 nav a:hover {
-    color: #808080; 
+    color: #7c7c7c; 
 }
 /* Іконка будиночка */
 .home-icon {
-    width: 24px; /* Менша іконка краще вписується в рядок */
-    height: auto;
+    width: 20px; /* Менша іконка краще вписується в рядок */
+    height: 20px;
     display: block;
-    transition: 0.3s ease; 
+    transition: 0.2s ease; 
 }
 .home-icon:hover {
-    filter: grayscale(100%) brightness(70%); 
+    filter: grayscale(100%) brightness(60%); 
 }
 /* Контейнер для іконки (посилання) */
 /* 1. Стиль для посилання, яке тримає іконку */

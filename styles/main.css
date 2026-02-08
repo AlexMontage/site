@@ -1,6 +1,6 @@
 .main {
     text-align: center;
-    background: #f4f4f4;
+    background: auto;
     padding: 80px 20px; /* Зменшили відступи для мобілок */
     width: 100%;
     min-height: 90vh; /* Використовуємо min-height замість height: 700px */
@@ -37,16 +37,14 @@
     margin-top: 20px;       /* Додає відступ зверху від тексту "Віддалений монтаж..." */
 }
 
-.telegram-channel-link, .facebook-channel-link {
+.telegram-channel-link, .facebook-channel-link, .youtube-channel-link {
     width: 40px;
     height: auto;
-    transition: 0.3s ease;
+    transition: 0.2s ease;
     display: block;         /* Допомагає коректно відображати розміри */
 }
 
-.telegram-channel-link:hover, .facebook-channel-link:hover {
-    filter: brightness(80%);
-    transform: scale(1.1);  /* Додав невелике збільшення для кращого вигляду */
+.telegram-channel-link:hover, .facebook-channel-link:hover, .youtube-channel-link:hover {
+    filter: brightness(110%);
+    transform: scale(1.07);  /* Додав невелике збільшення для кращого вигляду */
 }
-
-
