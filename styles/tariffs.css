@@ -31,7 +31,7 @@
     border-radius: 50px;
     width: 25%;
     flex: 0 0 300px; /* ЗМІНЕНО: Фіксована ширина для коректної роботи каруселі */
-    max-width: 320px;
+    max-width: 270px;
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -52,10 +52,17 @@
     font-family: 'Montserrat';
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 15px;
     width: 100%;
 }
 
+.info_about_tarrif_prices {
+    text-align: center;
+    margin-top: -15px;
+    margin-bottom: 5px;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 500;
+}
 /* Іконки */
 .card-youtube, 
 .card-safe, 
@@ -96,7 +103,7 @@
 .card ul {
     list-style: none;
     font-family: 'Montserrat';
-    line-height: 1.2; /* Трохи збільшено для читабельності */
+    line-height: 1; /* Трохи збільшено для читабельності */
     text-align: center;
     padding: 0;
     color: rgb(224, 224, 224);
@@ -104,12 +111,12 @@
     margin: 20px 0 20px 0;
     flex-grow: 1;
     width: 100%;
+    font-weight: 400;
 }
 
 .card ul li {
     margin-bottom: 10px;
 }
-
 /* Кнопка */
 .btn {
     font-weight: 500;
@@ -147,8 +154,8 @@
 
     /* Налаштування вигляду повзунка */
     .tariffs-grid::-webkit-scrollbar {
-        height: 100px; /* Висота повзунка */
-        display: block; /* Робимо його видимим */
+        height: 50px; /* Висота повзунка */
+        display: block !important; /* Робимо його видимим */
         
     }
 

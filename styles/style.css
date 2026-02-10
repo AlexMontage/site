@@ -162,11 +162,10 @@ section {
     display: block; /* Гарантуємо, що це блочний елемент */
     margin: 0 auto; /* Обнуляємо верх/низ для чистоти і ставимо auto по боках */ 
     padding: 40px; 
-    background: #1a1a1a; 
-    border-radius: 20px;     
+    background: #000000; 
+    border-radius: 40px;     
     max-width: 850px; 
     width: 90%; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 .guide-box p {
     margin-bottom: 20px; /* Це створює відступ між кроками */
@@ -211,11 +210,10 @@ section {
 .contacts-box {
     margin: 0 auto 40px; 
     padding: 40px; 
-    background: #1a1a1a; 
-    border-radius: 20px;     
+    background: #000000; 
+    border-radius: 40px;   
     max-width: 850px; 
     width: 90%; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     text-align: left;
     margin-bottom: 70px;
 }
@@ -247,75 +245,6 @@ section {
 
 
 
-/* Футер */
-footer {
-    padding: 40px 20px; /* Додаємо бокові відступи */
-    background-color: #000;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: center;
-    width: 100%;
-}
-
-.footer-text {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px; /* Трохи зменшили для кращого вигляду */
-    font-weight: 300;
-    color: #777;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: color 0.3s;
-    line-height: 1.5;
-}
-
-.footer-text:hover {
-    color: #fff;
-}
-
-.lore {
-    margin-top: 20px;
-    font-size: 12px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    color: #646464;
-    display: block;
-    line-height: 1.6;
-}
-
-/* Робимо посилання в футері зручними для натискання пальцем */
-.copy-email, .copy-tglink {
-    color: #666;
-    cursor: pointer;
-    transition: color 0.3s;
-    text-decoration: none;
-    display: inline-block; /* Щоб відступи працювали */
-    padding: 5px 0;
-}
-
-.copy-email:hover, .copy-tglink:hover {
-    color: #ffffff;
-}
-.toast {
-    visibility: hidden;
-    position: fixed;
-    left: 50%;
-    bottom: 20px; 
-    transform: translateX(-50%);
-    background-color: #1a1a1a;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.5s ease, bottom 0.5s ease, visibility 0.5s;
-}
-
-.toast.show {
-    visibility: visible;
-    opacity: 1;
-    bottom: 50px; /* Плавно піднімається вгору */
-}
 
 @media (max-width: 480px) {
     footer {

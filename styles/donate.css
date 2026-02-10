@@ -1,0 +1,87 @@
+#donate {
+    padding: 80px 20px;
+}
+
+.support-container {
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: #000000; /* Чорна підкладка (картка) */
+    border: none; /* Прибираємо рамку, бо на білому фоні її не треба */
+    border-radius: 40px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* М'яка тінь для об'єму */
+}
+
+.support-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: nowrap;
+}
+
+/* Ліва частина - Іконка */
+.support-icon-side {
+    flex-shrink: 0;
+}
+
+.donate-btn-animate {
+    display: block;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.donate-btn-animate img {
+    width: 70px; /* Зменшена іконка за твоїм запитом */
+    height: auto;
+    display: block;
+    /* Фільтр, щоб іконка виглядала яскравіше на чорному */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2)); 
+}
+
+/* Анімація */
+.donate-btn-animate:hover {
+    transform: scale(1.1);
+}
+
+/* Права частина - Текст */
+.support-text-side {
+    text-align: left;
+}
+
+.support-text-side p {
+    font-family: 'Montserrat', sans-serif;
+    color: #e0e0e0; /* Світлий текст на чорній підкладці */
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Адаптація для телефонів */
+@media (max-width: 600px) {
+    #donate {
+        padding: 60px 15px;
+    }
+
+    .support-container {
+        padding: 30px 20px;
+    }
+
+    .support-wrapper {
+        flex-direction: column; 
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .support-text-side {
+        text-align: center;
+    }
+
+    .support-text-side p {
+        font-size: 14px;
+    }
+
+    .donate-btn-animate img {
+        width: 55px;
+    }
+}

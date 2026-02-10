@@ -1,3 +1,4 @@
+/* --- ЗАГАЛЬНІ НАЛАШТУВАННЯ (PC) --- */
 .navigation-box {
     position: fixed;
     top: 15px;
@@ -6,150 +7,180 @@
     z-index: 1000;
     background-color: #000000;
     border-radius: 18px;
-    border: #e47171 10px;
-    padding: 10px 20px; /* Менші падінги */
+    padding: 10px 20px;
     display: flex;
-    align-items: left;
+    align-items: center;
     gap: 17px;
     width: auto;
-    max-width: 95%; /* Не даємо вийти за край екрана */
+    max-width: 95%;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Тонка рамка замість товстої */
 }
 
 nav {
     display: flex;
     gap: 15px;
 }
+
 nav a {
     text-decoration: none;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     color: #ffffff;
     font-weight: 600;
     font-size: 15px;
     transition: 0.3s;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
-/* Ефект наведення з твоїх нотаток */
+
 nav a:hover {
-    color: #7c7c7c; 
+    color: #7c7c7c;
 }
-/* Іконка будиночка */
+
 .home-icon {
-    width: 20px; /* Менша іконка краще вписується в рядок */
+    width: 20px;
     height: 20px;
     display: block;
-    transition: 0.2s ease; 
+    transition: 0.2s ease;
 }
-.home-icon:hover {
-    filter: grayscale(100%) brightness(60%); 
-}
-/* Контейнер для іконки (посилання) */
-/* 1. Стиль для посилання, яке тримає іконку */
+
+/* Tooltips */
 [data-tooltip] {
     position: relative;
-    display: inline-flex; /* Щоб посилання облягало іконку */
+    display: inline-flex;
 }
 
-/* 2. Сама підказка (тепер на посиланні) */
 [data-tooltip]::after {
-    content: attr(data-tooltip); 
+    content: attr(data-tooltip);
     position: absolute;
-    bottom: -40px; /* З'явиться ПІД іконкою, щоб не перекривати меню */
+    bottom: -40px;
     left: 50%;
-    transform: translateX(-50%) translateY(0);
-    
-    font-family: 'Calibri', sans-serif;
+    transform: translateX(-50%);
+    font-family: 'Montserrat', sans-serif;
     font-size: 12px;
-    background-color: #555555; 
-    color: #fff; 
+    background-color: #333;
+    color: #fff;
     padding: 5px 10px;
     border-radius: 8px;
-    white-space: nowrap; 
-    
+    white-space: nowrap;
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s ease; 
-    pointer-events: none;
-    z-index: 1100; /* Щоб була поверх усього */
+    transition: 0.3s ease;
+    z-index: 1100;
 }
 
-/* 3. Ефект при наведенні */
 [data-tooltip]:hover::after {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0); /* Плавно випливає */
 }
 
-/* Прибираємо підказки на телефонах, бо вони заважають натисканню */
-@media (max-width: 768px) {
-    [data-tooltip]::after {
-        display: none !important;
-    }
-}
-
-/* 1. На комп'ютері ховаємо мобільне меню */
+/* --- МОБІЛЬНЕ МЕНЮ (МЕНШЕ 768px) --- */
 .mobile-only {
     display: none;
 }
 
-/* 2. Налаштування для телефонів */
 @media (max-width: 768px) {
-    /* Ховаємо десктопне меню повністю */
     .pc-only {
         display: none !important;
     }
-    
-    .home-icon-mobile {
-        width: 22px;        /* Оптимальний розмір для телефону */
-        height: 22px;       /* Робимо її квадратною */
-        display: block;     /* Прибираємо зайві відступи знизу */
-        object-fit: contain; /* Щоб фото не стискалося неправильно */
-        filter: brightness(1); /* Якщо іконка темна, можна додати яскравості */
-        transition: 0.3s ease;
-    }
 
-    /* Додамо ефект при натисканні пальцем */
-    .home-icon-mobile:active {
-        transform: scale(0.9); /* Легке зменшення при кліку */
-        filter: grayscale(1);  /* Або зміна кольору */
-    }
-
-    /* Вирівнюємо посилання, в якому лежить іконка */
-    .mobile-only nav a:first-child {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* Показуємо і стилізуємо мобільне меню */
     .mobile-only {
-        display: block; /* Вмикаємо видимість */
+        display: block;
+    }
+
+    /* Компактна панель-острівець */
+    .navigation-box-nav.mobile-only {
         position: fixed;
-        bottom: 15px; /* Робимо острівець знизу, це зручніше для пальців */
+        bottom: 20px; /* Трохи вище від краю для зручності */
         left: 50%;
         transform: translateX(-50%);
-        z-index: 1000;
-        background-color: #000000;
-        border-radius: 20px;
-        padding: 10px 20px;
-        width: 90%;
-        max-width: 350px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-
-    .mobile-only nav {
+        z-index: 2000;
+        background-color: rgba(0, 0, 0, 0.9); /* Додано прозорість */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 30px; /* Більш округлі краї */
+        padding: 8px 20px; /* Менші вертикальні падінги */
+        height: 50px; /* Фіксована висота для акуратності */
+        width: auto;
+        min-width: 140px; /* Мінімальна ширина, щоб вмістити дві кнопки */
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-start; /* Всі елементи йдуть зліва направо */
         align-items: center;
-        gap: 5px;
+        gap: 20px; /* Відстань між бургером та іконкою дому */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .mobile-only nav a {
+    /* Бургер тепер перший зліва */
+    .burger-menu {
+        order: 1; /* Явно задаємо черговість */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        width: 22px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    /* Іконка дому тепер друга */
+    .home-icon-mobile {
+        order: 2;
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+    }
+
+    .burger-menu span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #ffffff;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
+    /* Анімація бургера (трохи підправлена під нову висоту) */
+    .burger-menu.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+    .burger-menu.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    .burger-menu.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.98);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1500;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s ease;
+    }
+
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-menu-overlay nav a {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px; /* Трохи більший шрифт для зручності натискання */
+        font-weight: 800;
+        color: white;
         text-decoration: none;
-        color: #ffffff;
-        font-family: 'Montserrat', sans-serif; /* Ваш шрифт */
-        font-weight: bold;
-        font-size: 14px;
+        margin-bottom: 20px;
+        display: block;
     }
 }

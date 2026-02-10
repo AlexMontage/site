@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/tariffs.css">
     <link rel="stylesheet" href="styles/portfolio.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/donate.css">
     <link rel="icon" type="image/png" href="logo.png">
-    <script src="scripts/script.js"></script>
+    <script src="scripts/script.js" defer></script>
 </head>
 <body>
 
@@ -25,32 +27,43 @@
         </a>
         <nav>
             <a href="#about">Автор</a>
-            <a href="#finished_works">Мої роботи</a>
+            <a href="#finished_works">Роботи</a>
             <a href="#tariffs">Тарифи</a>
             <a href="#help">Допомога</a>
+            <a href="#donate">Підтримка</a>
             <a href="#contacts">Зв'язок</a>
         </nav>
     </div>
 
     <div class="navigation-box-nav mobile-only">
-        <nav>
-            <a href="#main">
-                <img class="home-icon-mobile" src="icons/home.png">
-            </a>
-            <a href="#about">Автор</a>
-            <a href="#finished_works">Роботи</a>
-            <a href="#tariffs">Тарифи</a>
-            <a href="#contacts">Зв'язок</a>
-        </nav>
-    </div>
+        <a href="#main">
+            <img class="home-icon-mobile" src="icons/home.png" alt="Home">
+        </a>
+        
+        <div class="burger-menu" id="burgerBtn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     
+        <div class="mobile-menu-overlay" id="mobileMenu">
+            <nav>
+                <a href="#about">Автор</a>
+                <a href="#finished_works">Роботи</a>
+                <a href="#tariffs">Тарифи</a>
+                <a href="#help">Допомога</a>
+                <a href="#donate">Підтримка</a>
+                <a href="#contacts">Зв'язок</a>
+            </nav>
+        </div>
+    </div>
 
     <main>
         <section id="main" class="main">
             <div>
-                <img src="logo.png" class="site-logo">
+                <img src="logo.png" class="site-logo" alt="Logo">
                 <h1>Alex Montage</h1>
-                <p>Віддалений, якісний та доступний відемонотаж по всій Україні</p>
+                <p>Віддалений, якісний та доступний відеомонтаж по всій Україні</p>
             </div>
             <div class="channel-links">
                 <a href="https://t.me/alex_montage" target="_blank" data-tooltip="Telegram-канал"><img src="icons/telegram_link.png" class="telegram-channel-link"></a>
@@ -58,157 +71,135 @@
                 <a href="https://www.youtube.com/@alex.montage.youtube" target="_blank" data-tooltip="YouTube-канал"><img src="icons/youtube_link.png" class="youtube-channel-link"></a>
             </div>
         </section>
-    <main>
 
-    <section id="about">
-        <div class="about">
-            <div class="about-text">
-                <h2 class="section-title" style="text-align: center; margin-bottom: 20px;">Про автора</h2>
-                <p>Мене звати Чепіга Олександр Васильович. Зараз мені 15 років. займаюся відеомонтажем вже більше 3 років. Пропоную для клієнтів динамічний та якісний контент, який допомагає блогерам залучати нову аудиторію, колективам рекламувати свої послуги та інше, або законсервувати ваші спогади в одному відео.</p>
-                <p>Моя робота — це поєднання чіткого ритму, кольорокорекції та саунд-дизайну для створення візуалу, який хочеться додивитися до кінця.</p>
-                <div class="skills">
-                    <span class="skill-tag">Pinnacle Studio</span>
-                </div>
-            </div> <div class="about-image">
-                <img src="icons/about.jpg" alt="Фото автора">
-            </div>
-        </div>
-    </section>
-
-    <section id="finished_works">
-        <h2 class="section-title">Мої роботи</h2>
-        <div class="portfolio-grid">
-    
-            <div class="portfolio-item">
-                <div class="video-preview">
-                    <img src="icons/portfolio1.png" alt="Прев'ю роботи">
-                    <a href="https://youtu.be/Gt7p7r2HqGw" target="_blank" class="play-btn">▶</a>
-                </div>
-                <div class="portfolio-info">
-                    <h3>Новорічний вайб</h3>
+        <section id="about">
+            <div class="about">
+                <div class="about-text">
+                    <h2 class="section-title" style="text-align: center; margin-bottom: 20px;">Про автора</h2>
+                    <p>Мене звати Чепіга Олександр Васильович. Зараз мені 15 років. Займаюся відеомонтажем вже більше 3 років. Пропоную для клієнтів динамічний та якісний контент, який допомагає блогерам залучати нову аудиторію...</p>
+                    <p>Моя робота — це поєднання чіткого ритму, кольорокорекції та саунд-дизайну для створення візуалу, який хочеться додивитися до кінця.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Pinnacle Studio</span>
+                    </div>
+                </div> 
+                <div class="about-image">
+                    <img src="icons/about.jpg" alt="Фото автора">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="tariffs">
-        <h2 class="section-title">Тарифи</h2>
-    
-        <div class="tariffs-grid"> 
-    
-            <div class="card">
-                <img src="icons/express_icon.png" alt="Експрес" class="card-event">
-                <h3 class="card-titles">Експрес</h3>
-                <ul>
-                    <li>Короткі реклами</li>
-                    <li>Відеопривітання</li>
-                    <li>Shorts, Reels кліпи</li>
-                </ul>
-                <p class="new_price">Від 100 грн/хв</p>
-                <p class="old_price">110грн/хв</p>
-                <a href="https://tally.so/r/lb6Mav?name=Експрес&price=100" target="_blank" class="btn">Замовити</a>
+        <section id="finished_works">
+            <h2 class="section-title">Мої роботи</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="video-preview">
+                        <img src="icons/portfolio1.png" alt="Прев'ю роботи">
+                        <a href="https://youtu.be/Gt7p7r2HqGw" target="_blank" class="play-btn">▶</a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Новорічний вайб</h3>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="card">
-                <img src="icons/standart_icon.png" alt="Стандарт" class="card-safe">
-                <h3 class="card-titles">Стандарт</h3>
-                <ul>
-                    <li>Пам'ятні відео</li>
-                    <li>Репортажі з подій</li>
-                    <li>Відеозвіти зі свят</li>
-                </ul>
-                <p class="new_price">Від 120 грн/хв</p>
-                <p class="old_price">130грн/хв</p>
-                <a href="https://tally.so/r/lb6Mav?name=Стандарт&price=120" target="_blank" class="btn">Замовити</a>
+        <section id="tariffs">
+            <h2 class="section-title">Тарифи</h2>
+            <p class="info_about_tarrif_prices">Розрахунок ведеться за тривалість фінального результату</p>
+            <div class="tariffs-grid"> 
+                <div class="card">
+                    <img src="icons/express_icon.png" alt="Експрес" class="card-event">
+                    <h3 class="card-titles">Експрес</h3>
+                    <ul>
+                        <li>Короткі реклами</li>
+                        <li>Відеопривітання</li>
+                        <li>Shorts, Reels кліпи</li>
+                    </ul>
+                    <p class="new_price">Від 95 грн/хв</p>
+                    <p class="old_price">110грн/хв</p>
+                    <a href="https://tally.so/r/lb6Mav?name=Експрес&price=95" target="_blank" class="btn">Замовити</a>
+                </div>
+
+                <div class="card">
+                    <img src="icons/standart_icon.png" alt="Стандарт" class="card-safe">
+                    <h3 class="card-titles">Стандарт</h3>
+                    <ul>
+                        <li>Пам'ятні відео</li>
+                        <li>Репортажі з подій</li>
+                        <li>Відеозвіти зі свят</li>
+                    </ul>
+                    <p class="new_price">Від 100 грн/хв</p>
+                    <p class="old_price">120грн/хв</p>
+                    <a href="https://tally.so/r/lb6Mav?name=Стандарт&price=100" target="_blank" class="btn">Замовити</a>
+                </div>
+
+                <div class="card">
+                    <img src="icons/custom_icon.png" alt="Преміум" class="card-safe">
+                    <h3 class="card-titles">Преміум</h3>
+                    <ul>
+                        <li>Реклами брендів</li>
+                        <li>Безмежна тривалість</li>
+                        <li>Повна персоналізація</li>
+                    </ul>
+                    <p class="new_price">Від 130 грн/хв</p>
+                    <p class="old_price">150грн/хв</p>
+                    <a href="https://tally.so/r/lb6Mav?name=Преміум&price=130" target="_blank" class="btn">Замовити</a>
+                </div>
+            </div> 
+        </section>
+
+        <section id="help">
+            <h2 class="section-title">Як передати файли?</h2>
+            <div class="guide-box">
+                <div>
+                    <p><strong>Крок 1.</strong> Створіть папку на своєму <a href="https://drive.google.com" target="_blank" class="drive-link" onclick="copyToClipboard('https://drive.google.com'); event.stopPropagation();">Google Диску</a></p>
+                    <p><strong>Крок 2.</strong> Перетягніть або вставте всі ваші файли</p>
+                    <p><strong>Крок 3.</strong> Натисніть на папку: виберіть <strong>Поділитися</strong></p>
+                    <p><strong>Крок 4.</strong> Доступ: <strong>Усі, хто має посилання</strong> (Редактор)</p>
+                    <p><strong>Крок 5.</strong> Скопіюйте посилання та вставте в форму</p>
+                </div>
             </div>
+        </section>
 
-            <div class="card">
-                <img src="icons/custom_icon.png" alt="Преміум" class="card-safe">
-                <h3 class="card-titles">Преміум</h3>
-                <ul>
-                    <li>Реклами брендів</li>
-                    <li>Безмежна тривалість</li>
-                    <li>Повна персоналізація</li>
-                </ul>
-                <p class="new_price">Від 135 грн/хв</p>
-                <p class="old_price">150грн/хв</p>
-                <a href="https://tally.so/r/lb6Mav?name=Преміум&price=135" target="_blank" class="btn">Замовити</a>
+        <section id="donate">
+            <h2 class="section-title">Підтримка автора</h2>
+            <div class="support-container">
+                <div class="support-wrapper">
+                    <div class="support-icon-side">
+                        <a href="https://www.privat24.ua/send/ipcgk" target="_blank" class="donate-btn-animate">
+                            <img src="icons/donate_link.png" alt="Донат">
+                        </a>
+                    </div>
+                    <div class="support-text-side">
+                        <p>Ваші донати допомагають мені покращувати якість монтажу та оновлювати обладнання. Буду вдячний за підтримку моєї творчості!</p>
+                    </div>
+                </div>
             </div>
-    
-        </div> 
-    </section>
-
-    <section id="help">
-        <h2 class="section-title">Як передати файли?</h2>
-        <div class="guide-box">
-            <div>
-                <p>
-                    <strong>Крок 1.</strong> Створіть папку на своєму 
-                    <a href="https://drive.google.com" target="_blank" class="drive-link" 
-                       onclick="copyToClipboard('https://drive.google.com'); event.stopPropagation();">
-                       Google Диску
-                    </a>
-                </p>
-                <p><strong>Крок 2.</strong> Перетягніть або вставте в цю папку всі ваші файли, які потрібні для роботи</p>
-                <p><strong>Крок 3.</strong> Натисніть на папку правою кнопкою: виберіть <strong>Поділитися</strong></p>
-                <p><strong>Крок 4.</strong> Змініть доступ на <strong>Усі, хто має посилання</strong> (роль Редактор)</p>
-                <p><strong>Крок 5.</strong> Скопіюйте посилання та вставте його в Google Форму при замовленні</p>
+        </section>
+        
+        <section id="contacts">
+            <h2 class="section-title">Зворотній зв'язок</h2>
+            <div class="contacts-box">
+                <p>Номер телефону: <span class="copy-text" onclick="copyToClipboard('+380978340860')">+380 (97) 834 0860</span></p>
+                <p>Telegram: <a href="https://t.me/Oleksandr_Chepiha" class="copy-text" target="_blank">@Oleksandr_Chepiha</a></p>
+                <p>Gmail: <a href="mailto:oleksandrchepiga2023@gmail.com" class="copy-text" target="_blank">oleksandrchepiga2023@gmail.com</a></p>
+                <p>Facebook: <a href="https://www.facebook.com/share/18JZbQisNv/?mibextid=wwXIfr" class="copy-text" target="_blank">Олександр Чепіга</a></p>
             </div>
-        </div>
-    </section>
-    <section id="contacts">
-        <h2 class="section-title">Зворотній зв'язок</h2>
-        <div class="contacts-box">
-            <p>Номер телефону: <span class="copy-text" onclick="copyToClipboard('+380978340860')">+380 (97) 834 0860</span></p>
-            <p>Telegram: 
-                <a
-                    href="tg://resolve?domain=Oleksandr_Chepiha" 
-                    class="copy-text" 
-                    target="_blank"
-                    title="Перейти: tg://resolve?domain=Oleksandr_Chepiha">
-                    @Oleksandr_Chepiha
+        </section>
+    </main>
 
-                </a>
-            </p>
-            <p>Gmail: 
-                <a 
-                    href="mailto:oleksandrchepiga2023@gmail.com" 
-                    class="copy-text" 
-                    target="_blank"
-                    title="Перейти: mailto:oleksandrchepiga2023@gmail.com">
-                    oleksandrchepiga2023@gmail.com
-                </a>
-            </p>
-            <p>Facebook: 
-                <a 
-                    href="https://www.facebook.com/share/18JZbQisNv/?mibextid=wwXIfr" 
-                    class="copy-text" 
-                    target="_blank" 
-                    title="Перейти: https://www.facebook.com/share/18JZbQisNv/?mibextid=wwXIfr">
-                    Олександр Чепіга
-                </a>
-            </p>
-        </div>
-    </section>
+    <div id="toast" class="toast">Скопійовано!</div>
 
-<div id="toast" class="toast">Скопійовано!</div>
+    <footer>
+        <p class="footer-text" onclick="copyToClipboard('Alex Montage')">
+            © 2026 <span class="copy-hint">Alex Montage</span> - Всі права захищені
+        </p>
+        <p class="lore">
+            Сайт створено Чепігою Олександром Васильовичем за підтримки ШІ Google Gemini. 
+            <br>
+            Останнє оновлення: 10.02.2026 в 17:00 за Київським часом
+        </p>
+    </footer>
 
-<footer>
-    <p class="footer-text" onclick="copyToClipboard('Alex Montage')">
-        © 2026 <span class="copy-hint">Alex Montage</span> | Створено людиною & ШІ
-    </p>
-    <p class="lore">
-        Сайт створено Чепігою Олександром Васильовичем за підтримки ШІ Google Gemini. 
-        <br>
-        Якщо виникнуть проблеми або питання звертайтеся за допомогою в 
-        <a href="mailto:oleksandrchepiga2023@gmail.com" class="copy-email" target="_blank">Gmail</a>
-        або 
-        <a href="tg://resolve?domain=Oleksandr_Chepiha" class="copy-email" target="_blank">Telegram</a>
-        <br> 
-        Останнє оновлення: 31.01.2026 в 18:38 за Київським часом
-    </p>
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>

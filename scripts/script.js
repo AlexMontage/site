@@ -1,5 +1,6 @@
-let toastTimer; // Змінна для зберігання таймера
+let toastTimer;
 
+// --- КОПІЮВАННЯ В БУФЕР ---
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
         showToast("Скопійовано: " + text);
@@ -8,70 +9,82 @@ function copyToClipboard(text) {
     });
 }
 
-
-
+// --- ПОВІДОМЛЕННЯ (TOAST) ---
 function showToast(message) {
     const toast = document.getElementById("toast");
-    // 1. Очищуємо попередній таймер, якщо він був
     clearTimeout(toastTimer);
-    // 2. Оновлюємо текст і показуємо
     toast.innerText = message;
     toast.classList.add("show");
-    // 3. Створюємо новий таймер
     toastTimer = setTimeout(() => {
         toast.classList.remove("show");
     }, 3000);
 }
 
+// --- МОБІЛЬНЕ МЕНЮ (БУРГЕР) ---
+function toggleMenu() {
+    const burger = document.getElementById('burgerBtn');
+    const menu = document.getElementById('mobileMenu');
+    
+    if (!burger || !menu) return; // Захист від помилок, якщо елементів немає
 
-
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
+    document.body.classList.toggle('no-scroll');
+    burger.classList.toggle('active');
+    menu.classList.toggle('active');
 }
-window.scrollTo(0, 0);
 
+// --- СКРОЛ ТА ІНШІ ПОДІЇ ПРИ ЗАВАНТАЖЕННІ ---
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // Скидання скролу при перезавантаженні сторінки
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
 
+    // ПЛАВНИЙ СКРОЛ ДЛЯ ВСІХ ПОСИЛАНЬ НАВІГАЦІЇ
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Якщо це внутрішнє посилання (починається з #)
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(href);
 
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const href = this.getAttribute('href'); // Отримуємо назву розділу, наприклад #tariffs
-        const targetSection = document.querySelector(href);
+                if (targetSection) {
+                    // Якщо меню відкрите (на мобілках) — закриваємо його перед скролом
+                    if (document.getElementById('mobileMenu').classList.contains('active')) {
+                        toggleMenu();
+                    }
 
-        if (targetSection) {
-            const offsetTop = targetSection.offsetTop;
-            const elementHeight = targetSection.offsetHeight;
-            const windowHeight = window.innerHeight;
+                    const offsetTop = targetSection.offsetTop;
+                    const elementHeight = targetSection.offsetHeight;
+                    const windowHeight = window.innerHeight;
 
-            const scrollPoint = offsetTop + (elementHeight / 2) - (windowHeight / 2);
+                    // Центруємо розділ на екрані
+                    const scrollPoint = offsetTop + (elementHeight / 2) - (windowHeight / 2);
 
-            window.scrollTo({
-                top: scrollPoint,
-                behavior: "smooth"
-            });
+                    window.scrollTo({
+                        top: scrollPoint,
+                        behavior: "smooth"
+                    });
 
-            // ЦЕЙ РЯДОК ДОДАСТЬ #НАЗВУ В ПОСИЛАННЯ:
-            history.pushState(null, null, href);
-        }
+                    history.pushState(null, null, href);
+                }
+            }
+        });
     });
-});
 
-
-
-document.addEventListener("DOMContentLoaded", function() { /*Анімація появи тарифів*/
+    // АНІМАЦІЯ ПОВЯВИ ТАРИФІВ
     const observerOptions = {
-        threshold: 0.2 // Анімація почнеться, коли 20% блоку буде видно
+        threshold: 0.2
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Знаходимо всі картки всередині контейнера і додаємо їм клас
                 const cards = entry.target.querySelectorAll('.card');
                 cards.forEach(card => card.classList.add('show'));
-                
-                // Після того як анімація спрацювала, можна припинити спостереження
                 observer.unobserve(entry.target);
             }
         });
