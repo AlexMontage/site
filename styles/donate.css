@@ -31,7 +31,7 @@
 }
 
 .donate-btn-animate img {
-    width: 70px; /* Зменшена іконка за твоїм запитом */
+    width: 90px; /* Зменшена іконка за твоїм запитом */
     height: auto;
     display: block;
     /* Фільтр, щоб іконка виглядала яскравіше на чорному */
@@ -40,7 +40,8 @@
 
 /* Анімація */
 .donate-btn-animate:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    filter: brightness(130%);
 }
 
 /* Права частина - Текст */
@@ -56,6 +57,20 @@
     margin: 0;
     font-weight: 400;
 }
+.support-text-side a{
+    font-family: 'Inter';
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-left: 2px; /* Невеликий відступ від опису */
+    text-decoration: none;
+}
+.support-text-side a:hover {
+    color: #70b8ff;
+}
+
+
 
 /* Адаптація для телефонів */
 @media (max-width: 600px) {
