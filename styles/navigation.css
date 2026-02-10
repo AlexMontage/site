@@ -96,7 +96,7 @@ nav a:hover {
     .navigation-box-nav.mobile-only {
         position: fixed;
         right: 15px;
-        top: 50%;
+        top: 25%;
         transform: translateY(-50%);
         z-index: 2000;
         background-color: rgba(0, 0, 0, 0.9);
@@ -120,7 +120,7 @@ nav a:hover {
         position: fixed;
         right: 15px;
         top: calc(50% + 70px); /* Випадає під панеллю */
-        width: 100px; /* Вузьке віконце */
+        width: 110px; /* Вузьке віконце */
         height: auto;
         background: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(15px);
@@ -149,6 +149,7 @@ nav a:hover {
         display: flex;
         flex-direction: column; /* Вертикальний список */
         gap: 5px;
+        align-items: center;
     }
 
     .mobile-menu-overlay nav a {
@@ -161,7 +162,7 @@ nav a:hover {
         margin: -7px;
         display: block;
         text-align: center;
-        
+        align-items: center;
         /* Початковий стан: зміщені трохи вгору */
         opacity: 0;
         transform: translateY(-15px) scale(0.9);
