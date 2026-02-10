@@ -120,7 +120,7 @@ nav a:hover {
         position: fixed;
         right: 15px;
         top: calc(50% + 70px); /* Випадає під панеллю */
-        width: 150px; /* Вузьке віконце */
+        width: 100px; /* Вузьке віконце */
         height: auto;
         background: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(15px);
@@ -158,6 +158,7 @@ nav a:hover {
         color: white;
         text-decoration: none;
         padding: 10px;
+        margin: -7px;
         display: block;
         text-align: center;
         
@@ -170,6 +171,9 @@ nav a:hover {
     .mobile-menu-overlay.active nav a {
         opacity: 1;
         transform: translateY(0) scale(1);
+    }
+    .mobile-menu-overlay.active nav a:hover {
+        color: #747474;
     }
 
     /* Каскадний виліт розділів */
