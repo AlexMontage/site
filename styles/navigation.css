@@ -116,8 +116,7 @@ nav a:hover {
     /* 2. Вертикальне вікно списку (під кнопками) */
     .mobile-menu-overlay {
         position: fixed;
-        right: 15px;
-        top: calc(10% + 40px); /* Чітко під горизонтальною панеллю */
+        top: calc(30% + 50px); /* Чітко під горизонтальною панеллю */
         width: 120px;
         height: auto;
         background: rgba(0, 0, 0, 0.95);
