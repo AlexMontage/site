@@ -95,7 +95,7 @@ nav a:hover {
     .navigation-box-nav.mobile-only {
         position: fixed;
         right: 15px;
-        top: 8%; /* Ваша висота */
+        top: 25px; /* Ваша висота */
         transform: translateY(-50%);
         z-index: 2000;
         background-color: rgba(0, 0, 0, 0.9);
@@ -211,5 +211,6 @@ nav a:hover {
     .burger-menu.active span:nth-child(2) { opacity: 0; }
     .burger-menu.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 }
+
 
 
